@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-CVM/Pods-CVM-frameworks.sh
+${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework
+${BUILT_PRODUCTS_DIR}/Mantle/Mantle.framework
+${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework
