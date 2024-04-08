@@ -9,11 +9,27 @@
 /* Begin PBXBuildFile section */
 		71390B722BBC668B003DB608 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 71390B712BBC668B003DB608 /* AppDelegate.m */; };
 		71390B752BBC668B003DB608 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 71390B742BBC668B003DB608 /* SceneDelegate.m */; };
-		71390B782BBC668B003DB608 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71390B772BBC668B003DB608 /* ViewController.m */; };
 		71390B7B2BBC668B003DB608 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71390B792BBC668B003DB608 /* Main.storyboard */; };
 		71390B7D2BBC668C003DB608 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71390B7C2BBC668C003DB608 /* Assets.xcassets */; };
 		71390B802BBC668C003DB608 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71390B7E2BBC668C003DB608 /* LaunchScreen.storyboard */; };
 		71390B832BBC668C003DB608 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 71390B822BBC668C003DB608 /* main.m */; };
+		715F3D1A2BC42E0800F0DC79 /* CUBInviteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 715F3D0B2BC42E0800F0DC79 /* CUBInviteTableViewCell.m */; };
+		715F3D1B2BC42E0800F0DC79 /* CUBFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 715F3D0C2BC42E0800F0DC79 /* CUBFriendViewController.m */; };
+		715F3D1C2BC42E0800F0DC79 /* CUBSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 715F3D0F2BC42E0800F0DC79 /* CUBSearchTableViewCell.m */; };
+		715F3D1D2BC42E0800F0DC79 /* CUBUserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 715F3D102BC42E0800F0DC79 /* CUBUserTableViewCell.m */; };
+		715F3D1E2BC42E0800F0DC79 /* CUBNoFriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 715F3D142BC42E0800F0DC79 /* CUBNoFriendTableViewCell.m */; };
+		715F3D1F2BC42E0800F0DC79 /* CUBTableViewCellBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 715F3D172BC42E0800F0DC79 /* CUBTableViewCellBaseClass.m */; };
+		715F3D202BC42E0800F0DC79 /* CUBFriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 715F3D192BC42E0800F0DC79 /* CUBFriendTableViewCell.m */; };
+		715F3D2E2BC42FE600F0DC79 /* CUBNoFriendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 715F3D222BC42FE600F0DC79 /* CUBNoFriendModel.m */; };
+		715F3D2F2BC42FE600F0DC79 /* CUBSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 715F3D232BC42FE600F0DC79 /* CUBSearchModel.m */; };
+		715F3D302BC42FE600F0DC79 /* CUBInviteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 715F3D242BC42FE600F0DC79 /* CUBInviteModel.m */; };
+		715F3D312BC42FE600F0DC79 /* CUBModelBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 715F3D252BC42FE600F0DC79 /* CUBModelBaseClass.m */; };
+		715F3D322BC42FE600F0DC79 /* CUBFriendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 715F3D262BC42FE600F0DC79 /* CUBFriendModel.m */; };
+		715F3D332BC42FE600F0DC79 /* CUBUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 715F3D272BC42FE600F0DC79 /* CUBUserModel.m */; };
+		715F3D372BC434B200F0DC79 /* CUBFriendViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 715F3D362BC434B200F0DC79 /* CUBFriendViewModel.m */; };
+		715F3D3B2BC4384C00F0DC79 /* CUBFriendDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 715F3D3A2BC4384C00F0DC79 /* CUBFriendDataManager.m */; };
+		715F3D412BC43A4C00F0DC79 /* CUBApiClientCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 715F3D3D2BC43A4C00F0DC79 /* CUBApiClientCenter.m */; };
+		715F3D422BC43A4C00F0DC79 /* CUBNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 715F3D3E2BC43A4C00F0DC79 /* CUBNetworking.m */; };
 		F9E17C5FB1A36DD86B7D7B81 /* Pods_CVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6CAEDE7674EDD005B249363 /* Pods_CVM.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,13 +40,46 @@
 		71390B712BBC668B003DB608 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		71390B732BBC668B003DB608 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		71390B742BBC668B003DB608 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		71390B762BBC668B003DB608 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		71390B772BBC668B003DB608 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		71390B7A2BBC668B003DB608 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		71390B7C2BBC668C003DB608 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71390B7F2BBC668C003DB608 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		71390B812BBC668C003DB608 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		71390B822BBC668C003DB608 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		715F3D0B2BC42E0800F0DC79 /* CUBInviteTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUBInviteTableViewCell.m; sourceTree = "<group>"; };
+		715F3D0C2BC42E0800F0DC79 /* CUBFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUBFriendViewController.m; sourceTree = "<group>"; };
+		715F3D0D2BC42E0800F0DC79 /* CUBNoFriendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUBNoFriendTableViewCell.h; sourceTree = "<group>"; };
+		715F3D0E2BC42E0800F0DC79 /* CUBTableViewCellBaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUBTableViewCellBaseClass.h; sourceTree = "<group>"; };
+		715F3D0F2BC42E0800F0DC79 /* CUBSearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUBSearchTableViewCell.m; sourceTree = "<group>"; };
+		715F3D102BC42E0800F0DC79 /* CUBUserTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUBUserTableViewCell.m; sourceTree = "<group>"; };
+		715F3D112BC42E0800F0DC79 /* CUBFriendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUBFriendTableViewCell.h; sourceTree = "<group>"; };
+		715F3D122BC42E0800F0DC79 /* CUBFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUBFriendViewController.h; sourceTree = "<group>"; };
+		715F3D132BC42E0800F0DC79 /* CUBInviteTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUBInviteTableViewCell.h; sourceTree = "<group>"; };
+		715F3D142BC42E0800F0DC79 /* CUBNoFriendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUBNoFriendTableViewCell.m; sourceTree = "<group>"; };
+		715F3D152BC42E0800F0DC79 /* CUBUserTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUBUserTableViewCell.h; sourceTree = "<group>"; };
+		715F3D162BC42E0800F0DC79 /* CUBSearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUBSearchTableViewCell.h; sourceTree = "<group>"; };
+		715F3D172BC42E0800F0DC79 /* CUBTableViewCellBaseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUBTableViewCellBaseClass.m; sourceTree = "<group>"; };
+		715F3D182BC42E0800F0DC79 /* CUBTableViewCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUBTableViewCellProtocol.h; sourceTree = "<group>"; };
+		715F3D192BC42E0800F0DC79 /* CUBFriendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUBFriendTableViewCell.m; sourceTree = "<group>"; };
+		715F3D222BC42FE600F0DC79 /* CUBNoFriendModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUBNoFriendModel.m; sourceTree = "<group>"; };
+		715F3D232BC42FE600F0DC79 /* CUBSearchModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUBSearchModel.m; sourceTree = "<group>"; };
+		715F3D242BC42FE600F0DC79 /* CUBInviteModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUBInviteModel.m; sourceTree = "<group>"; };
+		715F3D252BC42FE600F0DC79 /* CUBModelBaseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUBModelBaseClass.m; sourceTree = "<group>"; };
+		715F3D262BC42FE600F0DC79 /* CUBFriendModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUBFriendModel.m; sourceTree = "<group>"; };
+		715F3D272BC42FE600F0DC79 /* CUBUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUBUserModel.m; sourceTree = "<group>"; };
+		715F3D282BC42FE600F0DC79 /* CUBNoFriendModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUBNoFriendModel.h; sourceTree = "<group>"; };
+		715F3D292BC42FE600F0DC79 /* CUBSearchModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUBSearchModel.h; sourceTree = "<group>"; };
+		715F3D2A2BC42FE600F0DC79 /* CUBInviteModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUBInviteModel.h; sourceTree = "<group>"; };
+		715F3D2B2BC42FE600F0DC79 /* CUBUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUBUserModel.h; sourceTree = "<group>"; };
+		715F3D2C2BC42FE600F0DC79 /* CUBFriendModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUBFriendModel.h; sourceTree = "<group>"; };
+		715F3D2D2BC42FE600F0DC79 /* CUBModelBaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUBModelBaseClass.h; sourceTree = "<group>"; };
+		715F3D352BC434B200F0DC79 /* CUBFriendViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUBFriendViewModel.h; sourceTree = "<group>"; };
+		715F3D362BC434B200F0DC79 /* CUBFriendViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUBFriendViewModel.m; sourceTree = "<group>"; };
+		715F3D392BC4384C00F0DC79 /* CUBFriendDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUBFriendDataManager.h; sourceTree = "<group>"; };
+		715F3D3A2BC4384C00F0DC79 /* CUBFriendDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUBFriendDataManager.m; sourceTree = "<group>"; };
+		715F3D3D2BC43A4C00F0DC79 /* CUBApiClientCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUBApiClientCenter.m; sourceTree = "<group>"; };
+		715F3D3E2BC43A4C00F0DC79 /* CUBNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUBNetworking.m; sourceTree = "<group>"; };
+		715F3D3F2BC43A4C00F0DC79 /* CUBApiClientCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUBApiClientCenter.h; sourceTree = "<group>"; };
+		715F3D402BC43A4C00F0DC79 /* CUBNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUBNetworking.h; sourceTree = "<group>"; };
 		7C8F18ACADE6B5B8493CBF88 /* Pods-CVM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CVM.debug.xcconfig"; path = "Target Support Files/Pods-CVM/Pods-CVM.debug.xcconfig"; sourceTree = "<group>"; };
 		D6CAEDE7674EDD005B249363 /* Pods_CVM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CVM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -85,12 +134,15 @@
 		71390B6F2BBC668B003DB608 /* CVM */ = {
 			isa = PBXGroup;
 			children = (
+				715F3D3C2BC43A4C00F0DC79 /* Utility */,
+				715F3D382BC4384C00F0DC79 /* DataManager */,
+				715F3D212BC42FE600F0DC79 /* Model */,
+				715F3D0A2BC42E0800F0DC79 /* View */,
+				715F3D342BC432B900F0DC79 /* ViewModel */,
 				71390B702BBC668B003DB608 /* AppDelegate.h */,
 				71390B712BBC668B003DB608 /* AppDelegate.m */,
 				71390B732BBC668B003DB608 /* SceneDelegate.h */,
 				71390B742BBC668B003DB608 /* SceneDelegate.m */,
-				71390B762BBC668B003DB608 /* ViewController.h */,
-				71390B772BBC668B003DB608 /* ViewController.m */,
 				71390B792BBC668B003DB608 /* Main.storyboard */,
 				71390B7C2BBC668C003DB608 /* Assets.xcassets */,
 				71390B7E2BBC668C003DB608 /* LaunchScreen.storyboard */,
@@ -98,6 +150,76 @@
 				71390B822BBC668C003DB608 /* main.m */,
 			);
 			path = CVM;
+			sourceTree = "<group>";
+		};
+		715F3D0A2BC42E0800F0DC79 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				715F3D0B2BC42E0800F0DC79 /* CUBInviteTableViewCell.m */,
+				715F3D0C2BC42E0800F0DC79 /* CUBFriendViewController.m */,
+				715F3D0D2BC42E0800F0DC79 /* CUBNoFriendTableViewCell.h */,
+				715F3D0E2BC42E0800F0DC79 /* CUBTableViewCellBaseClass.h */,
+				715F3D0F2BC42E0800F0DC79 /* CUBSearchTableViewCell.m */,
+				715F3D102BC42E0800F0DC79 /* CUBUserTableViewCell.m */,
+				715F3D112BC42E0800F0DC79 /* CUBFriendTableViewCell.h */,
+				715F3D122BC42E0800F0DC79 /* CUBFriendViewController.h */,
+				715F3D132BC42E0800F0DC79 /* CUBInviteTableViewCell.h */,
+				715F3D142BC42E0800F0DC79 /* CUBNoFriendTableViewCell.m */,
+				715F3D152BC42E0800F0DC79 /* CUBUserTableViewCell.h */,
+				715F3D162BC42E0800F0DC79 /* CUBSearchTableViewCell.h */,
+				715F3D172BC42E0800F0DC79 /* CUBTableViewCellBaseClass.m */,
+				715F3D182BC42E0800F0DC79 /* CUBTableViewCellProtocol.h */,
+				715F3D192BC42E0800F0DC79 /* CUBFriendTableViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		715F3D212BC42FE600F0DC79 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				715F3D222BC42FE600F0DC79 /* CUBNoFriendModel.m */,
+				715F3D232BC42FE600F0DC79 /* CUBSearchModel.m */,
+				715F3D242BC42FE600F0DC79 /* CUBInviteModel.m */,
+				715F3D252BC42FE600F0DC79 /* CUBModelBaseClass.m */,
+				715F3D262BC42FE600F0DC79 /* CUBFriendModel.m */,
+				715F3D272BC42FE600F0DC79 /* CUBUserModel.m */,
+				715F3D282BC42FE600F0DC79 /* CUBNoFriendModel.h */,
+				715F3D292BC42FE600F0DC79 /* CUBSearchModel.h */,
+				715F3D2A2BC42FE600F0DC79 /* CUBInviteModel.h */,
+				715F3D2B2BC42FE600F0DC79 /* CUBUserModel.h */,
+				715F3D2C2BC42FE600F0DC79 /* CUBFriendModel.h */,
+				715F3D2D2BC42FE600F0DC79 /* CUBModelBaseClass.h */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		715F3D342BC432B900F0DC79 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				715F3D352BC434B200F0DC79 /* CUBFriendViewModel.h */,
+				715F3D362BC434B200F0DC79 /* CUBFriendViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		715F3D382BC4384C00F0DC79 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				715F3D392BC4384C00F0DC79 /* CUBFriendDataManager.h */,
+				715F3D3A2BC4384C00F0DC79 /* CUBFriendDataManager.m */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		715F3D3C2BC43A4C00F0DC79 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				715F3D3D2BC43A4C00F0DC79 /* CUBApiClientCenter.m */,
+				715F3D3E2BC43A4C00F0DC79 /* CUBNetworking.m */,
+				715F3D3F2BC43A4C00F0DC79 /* CUBApiClientCenter.h */,
+				715F3D402BC43A4C00F0DC79 /* CUBNetworking.h */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,9 +336,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71390B782BBC668B003DB608 /* ViewController.m in Sources */,
+				715F3D422BC43A4C00F0DC79 /* CUBNetworking.m in Sources */,
+				715F3D332BC42FE600F0DC79 /* CUBUserModel.m in Sources */,
+				715F3D312BC42FE600F0DC79 /* CUBModelBaseClass.m in Sources */,
+				715F3D3B2BC4384C00F0DC79 /* CUBFriendDataManager.m in Sources */,
+				715F3D2E2BC42FE600F0DC79 /* CUBNoFriendModel.m in Sources */,
+				715F3D202BC42E0800F0DC79 /* CUBFriendTableViewCell.m in Sources */,
+				715F3D302BC42FE600F0DC79 /* CUBInviteModel.m in Sources */,
 				71390B722BBC668B003DB608 /* AppDelegate.m in Sources */,
+				715F3D372BC434B200F0DC79 /* CUBFriendViewModel.m in Sources */,
+				715F3D2F2BC42FE600F0DC79 /* CUBSearchModel.m in Sources */,
 				71390B832BBC668C003DB608 /* main.m in Sources */,
+				715F3D1E2BC42E0800F0DC79 /* CUBNoFriendTableViewCell.m in Sources */,
+				715F3D1F2BC42E0800F0DC79 /* CUBTableViewCellBaseClass.m in Sources */,
+				715F3D1C2BC42E0800F0DC79 /* CUBSearchTableViewCell.m in Sources */,
+				715F3D1B2BC42E0800F0DC79 /* CUBFriendViewController.m in Sources */,
+				715F3D1D2BC42E0800F0DC79 /* CUBUserTableViewCell.m in Sources */,
+				715F3D412BC43A4C00F0DC79 /* CUBApiClientCenter.m in Sources */,
+				715F3D1A2BC42E0800F0DC79 /* CUBInviteTableViewCell.m in Sources */,
+				715F3D322BC42FE600F0DC79 /* CUBFriendModel.m in Sources */,
 				71390B752BBC668B003DB608 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
