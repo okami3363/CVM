@@ -13,7 +13,7 @@
 @implementation CUBFriendDataManager
 
 - (void)getUserDataSuccess:(void (^)(NSArray *success))success failure:(void (^)(NSError *error))failure {
-    NSString *urlString = @"https://okami3363.github.io/man.json";
+    NSString *urlString = @"https://dimanyen.github.io/man.json";
     
     [[CUBApiClientCenter sharedInstance] httpGetRespondArrayDataHandel:urlString success:^(NSArray * _Nonnull dataArrry) {
         success(dataArrry);
@@ -23,7 +23,7 @@
 }
 
 - (void)getNoFriendSuccess:(void (^)(NSArray *success))success failure:(void (^)(NSError *error))failure {
-    NSString *urlString = @"https://okami3363.github.io/friend4.json";
+    NSString *urlString = @"https://dimanyen.github.io/friend4.json";
     
     [[CUBApiClientCenter sharedInstance] httpGetRespondArrayDataHandel:urlString success:^(NSArray * _Nonnull dataArrry) {
         success(dataArrry);
@@ -34,7 +34,7 @@
 
 - (void)getFriend1Success:(void (^)(NSArray * _Nonnull))success failure:(void (^)(NSError * _Nonnull))failure {
     
-    NSString *urlString = @"https://okami3363.github.io/friend1.json";
+    NSString *urlString = @"https://dimanyen.github.io/friend1.json";
     
     [[CUBApiClientCenter sharedInstance] httpGetRespondArrayDataHandel:urlString success:^(NSArray * _Nonnull dataArrry) {
         success(dataArrry);
@@ -46,7 +46,7 @@
 
 - (void)getFriend2Success:(void (^)(NSArray * _Nonnull))success failure:(void (^)(NSError * _Nonnull))failure {
     
-    NSString *urlString = @"https://okami3363.github.io/friend2.json";
+    NSString *urlString = @"https://dimanyen.github.io/friend2.json";
     
     [[CUBApiClientCenter sharedInstance] httpGetRespondArrayDataHandel:urlString success:^(NSArray * _Nonnull dataArrry) {
         success(dataArrry);
@@ -58,7 +58,7 @@
 
 - (void)getInviteSuccess:(void (^)(NSArray *success))success failure:(void (^)(NSError *error))failure {
     
-    NSString *urlString = @"https://okami3363.github.io/friend3.json";
+    NSString *urlString = @"https://dimanyen.github.io/friend3.json";
     
     [[CUBApiClientCenter sharedInstance] httpGetRespondArrayDataHandel:urlString success:^(NSArray * _Nonnull dataArrry) {
         success(dataArrry);
