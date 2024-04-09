@@ -10,6 +10,7 @@
 
 @interface CUBNoFriendTableViewCell()
 
+@property (nonatomic, strong) UILabel *descLabel;
 @property (nonatomic, strong) UIImageView *noFriendImageView;
 @property (nonatomic, strong) UILabel *noFriendLabel;
 @property (nonatomic, strong) UIButton *addButton;
@@ -22,6 +23,16 @@
     
     [super setupUI];
     
+    UIColor * _Nonnull textColor = [UIColor colorWithRed:71/255.0f green:71/255.0f blue:71/255.0f alpha:1.0f];
+    
+    self.descLabel = [[UILabel alloc] init];
+    self.descLabel.text = @"與好友們一起用 KOKO 聊起來！\n還能互相收付款、發紅包喔：）";
+    self.descLabel.font = [UIFont systemFontOfSize:14.0f];
+    self.descLabel.textColor = [UIColor colorWithRed:153/255.0f green:153/255.0f blue:153/255.0f alpha:1.0f];
+    self.descLabel.numberOfLines = 2;
+    self.descLabel.textAlignment = NSTextAlignmentCenter;
+    [self.contentView addSubview:self.descLabel];
+    
     self.noFriendImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"noFriend"]];
     [self.contentView addSubview:self.noFriendImageView];
     
@@ -29,6 +40,7 @@
     self.noFriendLabel.text = @"就從加好友開始吧：）";
     self.noFriendLabel.textAlignment = NSTextAlignmentCenter;
     self.noFriendLabel.font = [UIFont boldSystemFontOfSize:21];
+    self.noFriendLabel.textColor = textColor;
     [self.contentView addSubview:self.noFriendLabel];
     
     self.addButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -45,6 +57,13 @@
 - (void)setupAutolayout {
     
     [super setupAutolayout];
+    
+    [self.descLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.noFriendLabel.mas_bottom).offset(8);
+        make.centerX.equalTo(self.noFriendLabel);
+        make.left.equalTo(self.noFriendLabel).offset(5);
+        make.right.equalTo(self.noFriendLabel).offset(-5);
+    }];
     
     [self.noFriendImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         

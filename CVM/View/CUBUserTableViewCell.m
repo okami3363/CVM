@@ -11,10 +11,14 @@
 
 @interface CUBUserTableViewCell()
 
+@property (nonatomic, strong) UIView *indicatorView;
+@property (nonatomic, strong) UIButton *friednButton;
+@property (nonatomic, strong) UIImageView *arrowImageView;
+@property (nonatomic, strong) UIView *dotView;
 @property (nonatomic, strong) UIImageView *userImageView;
 @property (nonatomic, strong) UILabel *nameLabel;
 @property (nonatomic, strong) UILabel *kokoIdLabel;
-@property (nonatomic, strong) UIView *view;
+@property (nonatomic, strong) UIView *lineView;
 
 @property (nonatomic, strong) UIButton *testButton;
 @property (nonatomic, strong) UIButton *test2Button;
@@ -45,20 +49,48 @@
 - (void)setupUI {
     
     [super setupUI];
+        
+    UIColor * _Nonnull pinkColor = [UIColor colorWithRed:236/255.0f green:0/255.0f blue:140/255.0f alpha:1.0f];
+    self.indicatorView = [[UIView alloc] init];
+    self.indicatorView.backgroundColor = pinkColor;
+    self.indicatorView.clipsToBounds = YES;
+    self.indicatorView.layer.cornerRadius = 2.0f;
+    [self.contentView addSubview:self.indicatorView];
+    
+    self.friednButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIColor * _Nonnull textColor = [UIColor colorWithRed:71/255.0f green:71/255.0f blue:71/255.0f alpha:1.0f];
+    [self.friednButton setTitleColor:textColor forState:UIControlStateNormal];
+    [self.friednButton setTitle:@"好友" forState:UIControlStateNormal];
+    self.friednButton.titleLabel.font = [UIFont boldSystemFontOfSize:13.0f];
+    [self.contentView addSubview:self.friednButton];
+    
+    self.contentView.backgroundColor = [UIColor colorWithRed:252/255.0f green:252/255.0f blue:252/255.0f alpha:1.0f];
+    
+    self.dotView = [[UIView alloc] init];
+    self.dotView.backgroundColor = pinkColor;
+    self.dotView.clipsToBounds = YES;
+    self.dotView.layer.cornerRadius = 5.0f;
+    self.dotView.hidden = YES;
+    [self.contentView addSubview:self.dotView];
+    
+    self.arrowImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"arrow"]];
+    [self.contentView addSubview:self.arrowImageView];
     
     self.nameLabel = [[UILabel alloc] init];
     self.nameLabel.font = [UIFont boldSystemFontOfSize:18];
+    self.nameLabel.textColor = textColor;
     [self.contentView addSubview:self.nameLabel];
     
     self.kokoIdLabel = [[UILabel alloc] init];
+    self.kokoIdLabel.textColor = textColor;
     [self.contentView addSubview:self.kokoIdLabel];
     
     self.userImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"user"]];
     [self.contentView addSubview:self.userImageView];
     
-    self.view = [[UIView alloc] init];
-    self.view.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.075f];
-    [self.contentView addSubview:self.view];
+    self.lineView = [[UIView alloc] init];
+    self.lineView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.075f];
+    [self.contentView addSubview:self.lineView];
     
     UIColor *testColor = [UIColor colorWithRed:236/255.0f green:0/255.0f blue:140/255.0f alpha:1.0f];
     CGFloat borderWidth = 1.f;
@@ -102,6 +134,30 @@
     
     [super setupAutolayout];
     
+    [self.indicatorView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@4);
+        make.top.equalTo(self.friednButton.mas_bottom);
+        make.left.equalTo(self.friednButton).offset(2);
+        make.right.equalTo(self.friednButton).offset(-2);
+    }];
+    
+    [self.friednButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.nameLabel);
+        make.top.equalTo(self.kokoIdLabel.mas_bottom).offset(25);
+    }];
+    
+    [self.dotView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(10, 10));
+        make.centerY.equalTo(self.kokoIdLabel);
+        make.left.equalTo(self.arrowImageView.mas_right).offset(15);
+    }];
+    
+    [self.arrowImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(18, 18));
+        make.centerY.equalTo(self.kokoIdLabel);
+        make.left.equalTo(self.kokoIdLabel.mas_right);
+    }];
+    
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.height.equalTo(@18);
@@ -125,16 +181,16 @@
         make.width.equalTo(@52);
         make.height.equalTo(@52);
         
+        make.top.equalTo(self.nameLabel).offset(-3);
         make.right.equalTo(self.contentView.mas_right).with.offset(-30);
-        make.bottom.equalTo(self.view.mas_top).with.offset(-10);
         
     }];
     
-    [self.view mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.height.equalTo(@10);
+        make.height.equalTo(@1);
         
-        make.top.equalTo(self.kokoIdLabel.mas_bottom).with.offset(10);
+        make.top.equalTo(self.indicatorView.mas_bottom).with.offset(0);
         make.left.equalTo(self.contentView.mas_left).with.offset(0);
         make.right.equalTo(self.contentView.mas_right).with.offset(0);
         make.bottom.equalTo(self.contentView.mas_bottom).with.offset(0);

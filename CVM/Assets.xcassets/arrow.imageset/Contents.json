@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "imgFriendsFemaleDefault.png",
+      "filename" : "icInfoBackDeepGray.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "imgFriendsFemaleDefault@2x.png",
+      "filename" : "icInfoBackDeepGray@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "imgFriendsFemaleDefault@3x.png",
+      "filename" : "icInfoBackDeepGray@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -155,21 +155,21 @@
 		715F3D0A2BC42E0800F0DC79 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				715F3D0B2BC42E0800F0DC79 /* CUBInviteTableViewCell.m */,
-				715F3D0C2BC42E0800F0DC79 /* CUBFriendViewController.m */,
-				715F3D0D2BC42E0800F0DC79 /* CUBNoFriendTableViewCell.h */,
-				715F3D0E2BC42E0800F0DC79 /* CUBTableViewCellBaseClass.h */,
-				715F3D0F2BC42E0800F0DC79 /* CUBSearchTableViewCell.m */,
-				715F3D102BC42E0800F0DC79 /* CUBUserTableViewCell.m */,
-				715F3D112BC42E0800F0DC79 /* CUBFriendTableViewCell.h */,
-				715F3D122BC42E0800F0DC79 /* CUBFriendViewController.h */,
-				715F3D132BC42E0800F0DC79 /* CUBInviteTableViewCell.h */,
-				715F3D142BC42E0800F0DC79 /* CUBNoFriendTableViewCell.m */,
-				715F3D152BC42E0800F0DC79 /* CUBUserTableViewCell.h */,
-				715F3D162BC42E0800F0DC79 /* CUBSearchTableViewCell.h */,
-				715F3D172BC42E0800F0DC79 /* CUBTableViewCellBaseClass.m */,
 				715F3D182BC42E0800F0DC79 /* CUBTableViewCellProtocol.h */,
+				715F3D0D2BC42E0800F0DC79 /* CUBNoFriendTableViewCell.h */,
+				715F3D142BC42E0800F0DC79 /* CUBNoFriendTableViewCell.m */,
+				715F3D112BC42E0800F0DC79 /* CUBFriendTableViewCell.h */,
 				715F3D192BC42E0800F0DC79 /* CUBFriendTableViewCell.m */,
+				715F3D122BC42E0800F0DC79 /* CUBFriendViewController.h */,
+				715F3D0C2BC42E0800F0DC79 /* CUBFriendViewController.m */,
+				715F3D132BC42E0800F0DC79 /* CUBInviteTableViewCell.h */,
+				715F3D0B2BC42E0800F0DC79 /* CUBInviteTableViewCell.m */,
+				715F3D152BC42E0800F0DC79 /* CUBUserTableViewCell.h */,
+				715F3D102BC42E0800F0DC79 /* CUBUserTableViewCell.m */,
+				715F3D162BC42E0800F0DC79 /* CUBSearchTableViewCell.h */,
+				715F3D0F2BC42E0800F0DC79 /* CUBSearchTableViewCell.m */,
+				715F3D0E2BC42E0800F0DC79 /* CUBTableViewCellBaseClass.h */,
+				715F3D172BC42E0800F0DC79 /* CUBTableViewCellBaseClass.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
