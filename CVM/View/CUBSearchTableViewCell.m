@@ -11,7 +11,7 @@
 
 @interface CUBSearchTableViewCell() <UISearchBarDelegate>
 
-
+@property (nonatomic, strong) UIButton *addButton;
 @property (nonatomic, strong) UILabel *friendCountLabel;
 @property (nonatomic, strong) UISearchBar *searchBar;
 
@@ -38,13 +38,19 @@
 - (void)setupUI {
     
     [super setupUI];
+
+    self.addButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.addButton setImage:[UIImage imageNamed:@"pinkAdd"] forState:UIControlStateNormal];
+    [self.contentView addSubview:self.addButton];
     
     self.friendCountLabel = [[UILabel alloc] init];
+    self.friendCountLabel.hidden = YES;
     [self.contentView addSubview:self.friendCountLabel];
     
     self.searchBar = [[UISearchBar alloc] init];
     self.searchBar.delegate = self;
     self.searchBar.placeholder = @"想轉一筆給誰呢？";
+    self.searchBar.searchBarStyle = UISearchBarStyleMinimal;
     [self.contentView addSubview:self.searchBar];
     
 }
@@ -52,6 +58,12 @@
 - (void)setupAutolayout {
     
     [super setupAutolayout];
+    
+    [self.addButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(24, 24));
+        make.centerY.equalTo(self.searchBar);
+        make.right.equalTo(self.contentView).offset(-20);
+    }];
     
     [self.friendCountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
@@ -66,9 +78,9 @@
         
         make.height.equalTo(@36);
         
-        make.top.equalTo(self.friendCountLabel.mas_bottom).with.offset(15);
-        make.left.equalTo(self.contentView.mas_left).with.offset(30);
-        make.right.equalTo(self.contentView.mas_right).with.offset(-30);
+        make.top.equalTo(self.contentView.mas_top).with.offset(15);
+        make.left.equalTo(self.contentView.mas_left).with.offset(20);
+        make.right.equalTo(self.contentView.mas_right).with.offset(-60);
         make.bottom.equalTo(self.contentView.mas_bottom).with.offset(-10);
         
     }];

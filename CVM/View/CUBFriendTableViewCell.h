@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CUBFriendTableViewCell : CUBTableViewCellBaseClass
 
+@property (nonatomic, strong) UIView *lineView;
+
 @end
 
 NS_ASSUME_NONNULL_END

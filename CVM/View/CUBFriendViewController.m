@@ -225,6 +225,19 @@ typedef NS_ENUM(NSInteger,CUBTestType){
     
 }
 
+- (void)configLineAtLastCell:(CUBTableViewCellBaseClass *)cell indexPath:(NSIndexPath * _Nonnull)indexPath {
+    NSInteger count = (self.searchController.active)?self.results.count:self.dataSource.count;
+    if ([cell isMemberOfClass:[CUBFriendTableViewCell class]]) {
+        CUBFriendTableViewCell *friendCell = (CUBFriendTableViewCell *)cell;
+        if (indexPath.row == count-1) {
+            friendCell.lineView.hidden = YES;
+        }
+        else {
+            friendCell.lineView.hidden = NO;
+        }
+    }
+}
+
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
@@ -245,6 +258,7 @@ typedef NS_ENUM(NSInteger,CUBTestType){
     CUBTableViewCellBaseClass *cell = [tableView dequeueReusableCellWithIdentifier:cellReuseIdentifier];
     cell.delegate = self;
     cell.entity = model;
+    [self configLineAtLastCell:cell indexPath:indexPath];
     
     return cell;
     
