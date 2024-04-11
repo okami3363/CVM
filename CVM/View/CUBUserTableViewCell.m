@@ -55,6 +55,7 @@
     self.indicatorView.backgroundColor = pinkColor;
     self.indicatorView.clipsToBounds = YES;
     self.indicatorView.layer.cornerRadius = 2.0f;
+    self.indicatorView.hidden = YES;
     [self.contentView addSubview:self.indicatorView];
     
     self.friednButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -62,6 +63,7 @@
     [self.friednButton setTitleColor:textColor forState:UIControlStateNormal];
     [self.friednButton setTitle:@"好友" forState:UIControlStateNormal];
     self.friednButton.titleLabel.font = [UIFont boldSystemFontOfSize:13.0f];
+    self.friednButton.hidden = YES;
     [self.contentView addSubview:self.friednButton];
     
     self.contentView.backgroundColor = [UIColor colorWithRed:252/255.0f green:252/255.0f blue:252/255.0f alpha:1.0f];
@@ -90,6 +92,7 @@
     
     self.lineView = [[UIView alloc] init];
     self.lineView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.075f];
+    self.lineView.hidden = YES;
     [self.contentView addSubview:self.lineView];
     
     UIColor *testColor = [UIColor colorWithRed:236/255.0f green:0/255.0f blue:140/255.0f alpha:1.0f];
@@ -135,7 +138,7 @@
     [super setupAutolayout];
     
     [self.indicatorView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@4);
+        make.height.equalTo(@0);
         make.top.equalTo(self.friednButton.mas_bottom);
         make.left.equalTo(self.friednButton).offset(2);
         make.right.equalTo(self.friednButton).offset(-2);
@@ -144,6 +147,7 @@
     [self.friednButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.nameLabel);
         make.top.equalTo(self.kokoIdLabel.mas_bottom).offset(25);
+        make.height.equalTo(@0);
     }];
     
     [self.dotView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -239,16 +243,5 @@
 - (void)tset3Action:(id)sender {
     [self.delegate test3];
 }
-
-//- (void)awakeFromNib {
-//    [super awakeFromNib];
-//    // Initialization code
-//}
-//
-//- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-//    [super setSelected:selected animated:animated];
-//
-//    // Configure the view for the selected state
-//}
 
 @end

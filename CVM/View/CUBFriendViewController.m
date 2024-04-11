@@ -19,6 +19,7 @@
 #import "CUBTableViewCellProtocol.h"
 #import "CUBSearchModel.h"
 #import "CUBInviteModel.h"
+#import "CUBSegmentTableViewCell.h"
 
 typedef NS_ENUM(NSInteger,CUBTestType){
     CUBTestType1 = 1,   //(1) 無好友畫面
@@ -75,6 +76,7 @@ typedef NS_ENUM(NSInteger,CUBTestType){
     [self.tableView registerClass:[CUBSearchTableViewCell class] forCellReuseIdentifier:@"CUBSearchModel"];
     [self.tableView registerClass:[CUBFriendTableViewCell class] forCellReuseIdentifier:@"CUBFriendModel"];
     [self.tableView registerClass:[CUBInviteTableViewCell class] forCellReuseIdentifier:@"CUBInviteModel"];
+    [self.tableView registerClass:[CUBSegmentTableViewCell class] forCellReuseIdentifier:@"CUBSegmentModel"];
     
     self.results = @[].mutableCopy;
     self.searchController = [[UISearchController alloc]initWithSearchResultsController:nil];

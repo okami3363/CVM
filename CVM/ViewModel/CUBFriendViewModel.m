@@ -5,6 +5,7 @@
 //  Created by 黃崑展 on 2024/4/8.
 //
 
+#import "CUBSegmentModel.h"
 #import "CUBFriendViewModel.h"
 #import "CUBFriendDataManager.h"
 #import "CUBApiClientCenter.h"
@@ -55,6 +56,7 @@
     
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
         [muArray addObjectsFromArray:user];
+        [muArray addObject:[[CUBSegmentModel alloc] init]];
         [muArray addObjectsFromArray:friend];
         entitiesData(muArray);
     });
@@ -83,6 +85,7 @@
     
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
         [muArray addObjectsFromArray:user];
+        [muArray addObject:[[CUBSegmentModel alloc] init]];
         [muArray addObjectsFromArray:friend];
         entitiesData(muArray);
     });
@@ -119,6 +122,7 @@
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
         [muArray addObjectsFromArray:user];
         [muArray addObjectsFromArray:invite];
+        [muArray addObject:[[CUBSegmentModel alloc] init]];
         [muArray addObjectsFromArray:friend];
         entitiesData(muArray);
     });

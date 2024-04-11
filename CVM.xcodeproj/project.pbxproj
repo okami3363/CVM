@@ -30,6 +30,8 @@
 		715F3D3B2BC4384C00F0DC79 /* CUBFriendDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 715F3D3A2BC4384C00F0DC79 /* CUBFriendDataManager.m */; };
 		715F3D412BC43A4C00F0DC79 /* CUBApiClientCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 715F3D3D2BC43A4C00F0DC79 /* CUBApiClientCenter.m */; };
 		715F3D422BC43A4C00F0DC79 /* CUBNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 715F3D3E2BC43A4C00F0DC79 /* CUBNetworking.m */; };
+		718443512BC8481200395501 /* CUBSegmentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 718443502BC8481200395501 /* CUBSegmentModel.m */; };
+		718443542BC8487000395501 /* CUBSegmentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 718443532BC8487000395501 /* CUBSegmentTableViewCell.m */; };
 		F9E17C5FB1A36DD86B7D7B81 /* Pods_CVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6CAEDE7674EDD005B249363 /* Pods_CVM.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +82,10 @@
 		715F3D3E2BC43A4C00F0DC79 /* CUBNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUBNetworking.m; sourceTree = "<group>"; };
 		715F3D3F2BC43A4C00F0DC79 /* CUBApiClientCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUBApiClientCenter.h; sourceTree = "<group>"; };
 		715F3D402BC43A4C00F0DC79 /* CUBNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUBNetworking.h; sourceTree = "<group>"; };
+		7184434F2BC8481200395501 /* CUBSegmentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUBSegmentModel.h; sourceTree = "<group>"; };
+		718443502BC8481200395501 /* CUBSegmentModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUBSegmentModel.m; sourceTree = "<group>"; };
+		718443522BC8487000395501 /* CUBSegmentTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUBSegmentTableViewCell.h; sourceTree = "<group>"; };
+		718443532BC8487000395501 /* CUBSegmentTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUBSegmentTableViewCell.m; sourceTree = "<group>"; };
 		7C8F18ACADE6B5B8493CBF88 /* Pods-CVM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CVM.debug.xcconfig"; path = "Target Support Files/Pods-CVM/Pods-CVM.debug.xcconfig"; sourceTree = "<group>"; };
 		D6CAEDE7674EDD005B249363 /* Pods_CVM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CVM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -170,6 +176,8 @@
 				715F3D0F2BC42E0800F0DC79 /* CUBSearchTableViewCell.m */,
 				715F3D0E2BC42E0800F0DC79 /* CUBTableViewCellBaseClass.h */,
 				715F3D172BC42E0800F0DC79 /* CUBTableViewCellBaseClass.m */,
+				718443522BC8487000395501 /* CUBSegmentTableViewCell.h */,
+				718443532BC8487000395501 /* CUBSegmentTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -189,6 +197,8 @@
 				715F3D2B2BC42FE600F0DC79 /* CUBUserModel.h */,
 				715F3D2C2BC42FE600F0DC79 /* CUBFriendModel.h */,
 				715F3D2D2BC42FE600F0DC79 /* CUBModelBaseClass.h */,
+				7184434F2BC8481200395501 /* CUBSegmentModel.h */,
+				718443502BC8481200395501 /* CUBSegmentModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -344,9 +354,11 @@
 				715F3D202BC42E0800F0DC79 /* CUBFriendTableViewCell.m in Sources */,
 				715F3D302BC42FE600F0DC79 /* CUBInviteModel.m in Sources */,
 				71390B722BBC668B003DB608 /* AppDelegate.m in Sources */,
+				718443542BC8487000395501 /* CUBSegmentTableViewCell.m in Sources */,
 				715F3D372BC434B200F0DC79 /* CUBFriendViewModel.m in Sources */,
 				715F3D2F2BC42FE600F0DC79 /* CUBSearchModel.m in Sources */,
 				71390B832BBC668C003DB608 /* main.m in Sources */,
+				718443512BC8481200395501 /* CUBSegmentModel.m in Sources */,
 				715F3D1E2BC42E0800F0DC79 /* CUBNoFriendTableViewCell.m in Sources */,
 				715F3D1F2BC42E0800F0DC79 /* CUBTableViewCellBaseClass.m in Sources */,
 				715F3D1C2BC42E0800F0DC79 /* CUBSearchTableViewCell.m in Sources */,
