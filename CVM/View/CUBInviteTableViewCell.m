@@ -12,7 +12,7 @@
 @interface CUBInviteTableViewCell()
 
 @property (nonatomic, strong) UIView *groupIndicator;
-@property (nonatomic, strong) UIView *view;
+@property (nonatomic, strong) UIView *bgColorView;
 @property (nonatomic, strong) UIImageView *userImageView;
 @property (nonatomic, strong) UILabel *nameLabel;
 @property (nonatomic, strong) UILabel *inviteLabel;
@@ -50,7 +50,7 @@
     
     [super setupUI];
     
-    self.contentView.layer.shadowColor = [[UIColor blackColor] CGColor];
+    self.contentView.layer.shadowColor = [[[UIColor blackColor] colorWithAlphaComponent:0.6] CGColor];
     self.contentView.layer.shadowOffset = CGSizeMake(0.0f, 3.0f);
     self.contentView.layer.shadowOpacity = 0.3f;
     self.contentView.layer.shadowRadius = 3.0f;
@@ -64,21 +64,24 @@
     self.groupIndicator.hidden = YES;
     [self.contentView addSubview:self.groupIndicator];
     
-    self.view = [[UIView alloc] init];
-    self.view.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:alpha];
-    self.view.layer.cornerRadius = 10;
-    self.view.layer.masksToBounds = YES;
-    [self.contentView addSubview:self.view];
+    self.bgColorView = [[UIView alloc] init];
+    self.bgColorView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:1.0f];
+    self.bgColorView.layer.cornerRadius = 6.0f;
+    self.bgColorView.layer.masksToBounds = YES;
+    [self.contentView addSubview:self.bgColorView];
     
     self.userImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"user"]];
     [self.contentView addSubview:self.userImageView];
     
     self.nameLabel = [[UILabel alloc] init];
+    self.nameLabel.font = [UIFont systemFontOfSize:16];
+    self.nameLabel.textColor = [UIColor colorWithRed:71/255.0f green:71/255.0f blue:71/255.0f alpha:1.0f];
     [self.contentView addSubview:self.nameLabel];
     
     self.inviteLabel = [[UILabel alloc] init];
     self.inviteLabel.textColor = [UIColor colorWithRed:153/255.0f green:153/255.0f blue:153/255.0f alpha:1.0f];
     self.inviteLabel.text = @"邀請你成為好友：）";
+    self.inviteLabel.font = [UIFont systemFontOfSize:13.0f];
     [self.contentView addSubview:self.inviteLabel];
     
     self.okButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -95,13 +98,13 @@
     
     [super setupAutolayout];
     
-    [self.view mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.bgColorView mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.height.equalTo(@70);
+        make.height.equalTo(@55);
         
-        make.top.equalTo(self.contentView.mas_top).with.offset(15);
+        make.top.equalTo(self.contentView.mas_top).with.offset(5);
         make.left.equalTo(self.contentView.mas_left).with.offset(30);
-        make.bottom.equalTo(self.contentView.mas_bottom).with.offset(-15);
+        make.bottom.equalTo(self.contentView.mas_bottom).with.offset(-10);
         make.right.equalTo(self.contentView.mas_right).with.offset(-30);
         
     }];
@@ -110,9 +113,9 @@
         
         make.height.equalTo(@70);
         
-        make.top.equalTo(self.view.mas_top).with.offset(10);
-        make.left.equalTo(self.view.mas_left).with.offset(10);
-        make.right.equalTo(self.view.mas_right).with.offset(-10);
+        make.top.equalTo(self.bgColorView.mas_top).with.offset(10);
+        make.left.equalTo(self.bgColorView.mas_left).with.offset(10);
+        make.right.equalTo(self.bgColorView.mas_right).with.offset(-10);
         
     }];
     
@@ -121,9 +124,9 @@
         make.width.equalTo(@40);
         make.height.equalTo(@40);
         
-        make.left.equalTo(self.view.mas_left).with.offset(15);
-        make.centerY.equalTo(self.view);
-        make.bottom.equalTo(self.view.mas_bottom).with.offset(-15);
+        make.left.equalTo(self.bgColorView.mas_left).with.offset(15);
+        make.centerY.equalTo(self.bgColorView);
+        make.bottom.equalTo(self.bgColorView.mas_bottom).with.offset(-15);
         
     }];
     
@@ -131,7 +134,7 @@
         
         make.height.equalTo(@22);
         
-        make.top.equalTo(self.view.mas_top).with.offset(14);
+        make.top.equalTo(self.bgColorView.mas_top).with.offset(14);
         make.left.equalTo(self.userImageView.mas_right).with.offset(15);
         
     }];
@@ -150,7 +153,7 @@
         make.width.equalTo(@30);
         make.height.equalTo(@30);
         
-        make.top.equalTo(self.view.mas_top).with.offset(20);
+        make.top.equalTo(self.bgColorView.mas_top).with.offset(20);
         make.right.equalTo(self.noButton.mas_left).with.offset(-15);
         
     }];
@@ -160,8 +163,8 @@
         make.width.equalTo(@30);
         make.height.equalTo(@30);
         
-        make.top.equalTo(self.view.mas_top).with.offset(20);
-        make.right.equalTo(self.view.mas_right).with.offset(-15);
+        make.top.equalTo(self.bgColorView.mas_top).with.offset(20);
+        make.right.equalTo(self.bgColorView.mas_right).with.offset(-15);
         
     }];
     
