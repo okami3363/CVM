@@ -38,10 +38,10 @@
     self.nameLabel.text = model.name;
     
     if (model.isLeader && model.isClose) {
-        self.groupIndicator.hidden = NO;
+        [self updateGroupIndicatorHidden:NO];
     }
     else {
-        self.groupIndicator.hidden = YES;
+        [self updateGroupIndicatorHidden:YES];
     }
     
 }
@@ -50,10 +50,10 @@
     
     [super setupUI];
     
-    self.contentView.layer.shadowColor = [[[UIColor blackColor] colorWithAlphaComponent:0.6] CGColor];
-    self.contentView.layer.shadowOffset = CGSizeMake(0.0f, 3.0f);
+    self.contentView.layer.shadowColor = [[[UIColor blackColor] colorWithAlphaComponent:0.4f] CGColor];
+    self.contentView.layer.shadowOffset = CGSizeMake(0.0f, 4.0f);
     self.contentView.layer.shadowOpacity = 0.3f;
-    self.contentView.layer.shadowRadius = 3.0f;
+    self.contentView.layer.shadowRadius = 7.0f;
     
     CGFloat alpha = (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark)?0.1f:0.7f;
     
@@ -65,7 +65,7 @@
     [self.contentView addSubview:self.groupIndicator];
     
     self.bgColorView = [[UIView alloc] init];
-    self.bgColorView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:1.0f];
+    self.bgColorView.backgroundColor = [UIColor whiteColor];
     self.bgColorView.layer.cornerRadius = 6.0f;
     self.bgColorView.layer.masksToBounds = YES;
     [self.contentView addSubview:self.bgColorView];
@@ -99,24 +99,17 @@
     [super setupAutolayout];
     
     [self.bgColorView mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.height.equalTo(@55);
-        
-        make.top.equalTo(self.contentView.mas_top).with.offset(5);
+        make.top.equalTo(self.contentView.mas_top).with.offset(2);
         make.left.equalTo(self.contentView.mas_left).with.offset(30);
-        make.bottom.equalTo(self.contentView.mas_bottom).with.offset(-10);
+        make.bottom.equalTo(self.contentView.mas_bottom).with.offset(-15);
         make.right.equalTo(self.contentView.mas_right).with.offset(-30);
-        
     }];
     
     [self.groupIndicator mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.height.equalTo(@70);
-        
         make.top.equalTo(self.bgColorView.mas_top).with.offset(10);
         make.left.equalTo(self.bgColorView.mas_left).with.offset(10);
         make.right.equalTo(self.bgColorView.mas_right).with.offset(-10);
-        
+        make.bottom.equalTo(self.bgColorView.mas_bottom).with.offset(10);
     }];
     
     [self.userImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -168,6 +161,20 @@
         
     }];
     
+}
+
+- (void)updateGroupIndicatorHidden:(BOOL)hidden {
+    self.groupIndicator.hidden = hidden;
+    if (hidden) {
+        [self.bgColorView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.bottom.equalTo(self.contentView.mas_bottom).with.offset(-8);
+        }];
+    }
+    else {
+        [self.bgColorView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.bottom.equalTo(self.contentView.mas_bottom).with.offset(-15);
+        }];
+    }
 }
 
 @end
