@@ -9,8 +9,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM(NSInteger,CUBTestType){
+    CUBTestType1 = 1,   //(1) 無好友畫面
+    CUBTestType2,       //(2) 只有好友列表
+    CUBTestType3,       //(3) 好友列表含邀請
+};
+
 @interface CUBFriendViewModel : NSObject
 
+@property CUBTestType testType;
 @property (nonatomic, strong) NSMutableArray *dataSource;
 @property (nonatomic, strong) NSMutableArray *results;
 
