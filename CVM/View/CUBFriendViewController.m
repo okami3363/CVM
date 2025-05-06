@@ -29,7 +29,7 @@ typedef NS_ENUM(NSInteger,CUBTestType){
 
 @interface CUBFriendViewController () <UITableViewDataSource, UISearchResultsUpdating, CUBTableViewCellProtocol, UISearchControllerDelegate, UITableViewDelegate>
 
-@property (nonatomic, strong) CUBFriendViewModel *eventHandler;
+@property (nonatomic, strong) CUBFriendViewModel *vm;
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UISearchController *searchController;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
@@ -47,10 +47,10 @@ typedef NS_ENUM(NSInteger,CUBTestType){
     [self setupUI];
     [self setupAutolayout];
     
-    self.eventHandler = [[CUBFriendViewModel alloc] init];
+    self.vm = [[CUBFriendViewModel alloc] init];
     self.testType = CUBTestType1;
-    [self.eventHandler get_status_no_friend:^(NSArray *dataSource) {
-        self.eventHandler.dataSource = dataSource.mutableCopy;
+    [self.vm get_status_no_friend:^(NSArray *dataSource) {
+        self.vm.dataSource = dataSource.mutableCopy;
         [self.tableView reloadData];
     }];
     
@@ -104,8 +104,8 @@ typedef NS_ENUM(NSInteger,CUBTestType){
     switch (self.testType) {
         case CUBTestType1: {
             
-            [self.eventHandler get_status_no_friend:^(NSArray *dataSource) {
-                self.eventHandler.dataSource = dataSource.mutableCopy;
+            [self.vm get_status_no_friend:^(NSArray *dataSource) {
+                self.vm.dataSource = dataSource.mutableCopy;
                 [self.tableView reloadData];
                 [self.refreshControl endRefreshing];
             }];
@@ -115,8 +115,8 @@ typedef NS_ENUM(NSInteger,CUBTestType){
             
         case CUBTestType2: {
             
-            [self.eventHandler get_status_friend:^(NSArray *dataSource) {
-                self.eventHandler.dataSource = dataSource.mutableCopy;
+            [self.vm get_status_friend:^(NSArray *dataSource) {
+                self.vm.dataSource = dataSource.mutableCopy;
                 [self.tableView reloadData];
                 [self.refreshControl endRefreshing];
             }];
@@ -126,8 +126,8 @@ typedef NS_ENUM(NSInteger,CUBTestType){
             
         case CUBTestType3: {
             
-            [self.eventHandler get_status_friend_and_invite:^(NSArray *dataSource) {
-                self.eventHandler.dataSource = dataSource.mutableCopy;
+            [self.vm get_status_friend_and_invite:^(NSArray *dataSource) {
+                self.vm.dataSource = dataSource.mutableCopy;
                 [self.tableView reloadData];
                 [self.refreshControl endRefreshing];
             }];
@@ -155,7 +155,7 @@ typedef NS_ENUM(NSInteger,CUBTestType){
         
         NSMutableIndexSet *idxSet = [NSMutableIndexSet indexSetWithIndexesInRange:NSMakeRange(indexPath.row+1, leaderModel.group.count)];
         
-        [self.eventHandler.dataSource insertObjects:leaderModel.group atIndexes:idxSet];
+        [self.vm.dataSource insertObjects:leaderModel.group atIndexes:idxSet];
         
         dispatch_async(dispatch_get_main_queue(), ^(){
             
@@ -182,7 +182,7 @@ typedef NS_ENUM(NSInteger,CUBTestType){
     dispatch_async(createQueue, ^(){
         
         NSPredicate *p = [NSPredicate predicateWithFormat:@"self isMemberOfClass: %@", [CUBInviteModel class]];
-        NSArray * filtered = [self.eventHandler.dataSource filteredArrayUsingPredicate:p];
+        NSArray * filtered = [self.vm.dataSource filteredArrayUsingPredicate:p];
         
         NSPredicate *predicate = [NSPredicate predicateWithFormat: @"isLeader == YES"];
         CUBInviteModel *leaderModel = nil;
@@ -194,7 +194,7 @@ typedef NS_ENUM(NSInteger,CUBTestType){
         
         if (!leaderModel) return;
         
-        NSInteger row = [self.eventHandler.dataSource indexOfObject:leaderModel];
+        NSInteger row = [self.vm.dataSource indexOfObject:leaderModel];
         
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];
         
@@ -204,7 +204,7 @@ typedef NS_ENUM(NSInteger,CUBTestType){
             [indexPaths addObject:insterIndexPath];
         }
         
-        [self.eventHandler.dataSource removeObjectsInRange:NSMakeRange(indexPath.row+1, leaderModel.group.count)];
+        [self.vm.dataSource removeObjectsInRange:NSMakeRange(indexPath.row+1, leaderModel.group.count)];
         
         dispatch_async(dispatch_get_main_queue(), ^(){
             
@@ -225,7 +225,7 @@ typedef NS_ENUM(NSInteger,CUBTestType){
 }
 
 - (void)configLineAtLastCell:(CUBTableViewCellBaseClass *)cell indexPath:(NSIndexPath * _Nonnull)indexPath {
-    NSInteger count = (self.searchController.active)?self.eventHandler.results.count:self.eventHandler.dataSource.count;
+    NSInteger count = (self.searchController.active)?self.vm.results.count:self.vm.dataSource.count;
     if ([cell isMemberOfClass:[CUBFriendTableViewCell class]]) {
         CUBFriendTableViewCell *friendCell = (CUBFriendTableViewCell *)cell;
         if (indexPath.row == count-1) {
@@ -242,15 +242,15 @@ typedef NS_ENUM(NSInteger,CUBTestType){
     
     if (self.searchController.active) {
         
-        return self.eventHandler.results.count ;
+        return self.vm.results.count ;
     }
     
-    return self.eventHandler.dataSource.count;
+    return self.vm.dataSource.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    id model = (self.searchController.active)?[self.eventHandler.results objectAtIndex:indexPath.row]:[self.eventHandler.dataSource objectAtIndex:indexPath.row];
+    id model = (self.searchController.active)?[self.vm.results objectAtIndex:indexPath.row]:[self.vm.dataSource objectAtIndex:indexPath.row];
     
     NSString *cellReuseIdentifier = NSStringFromClass([model class]);
     
@@ -268,7 +268,7 @@ typedef NS_ENUM(NSInteger,CUBTestType){
     
     if (self.searchController.active) return;
     
-    id model = [self.eventHandler.dataSource objectAtIndex:indexPath.row];
+    id model = [self.vm.dataSource objectAtIndex:indexPath.row];
     
     if ([model isMemberOfClass:[CUBInviteModel class]]) {
         CUBInviteModel *leaderModel = (CUBInviteModel *)model;
@@ -290,17 +290,17 @@ typedef NS_ENUM(NSInteger,CUBTestType){
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
     
     NSString *inputStr = searchController.searchBar.text ;
-       if (self.eventHandler.results.count > 0) {
-           [self.eventHandler.results removeAllObjects];
+       if (self.vm.results.count > 0) {
+           [self.vm.results removeAllObjects];
        }
-       for (id model in self.eventHandler.dataSource) {
+       for (id model in self.vm.dataSource) {
            
            CUBFriendModel *memberFriendModel = nil;
            if ([model isMemberOfClass:[CUBFriendModel class]]) {
                memberFriendModel = model;
                
                if ([memberFriendModel.name.lowercaseString rangeOfString:inputStr.lowercaseString].location != NSNotFound) {
-                   [self.eventHandler.results addObject:memberFriendModel];
+                   [self.vm.results addObject:memberFriendModel];
                }
            }
        }
@@ -326,8 +326,8 @@ typedef NS_ENUM(NSInteger,CUBTestType){
 - (void)search {
     
     NSPredicate *p = [NSPredicate predicateWithFormat:@"self isMemberOfClass: %@", [CUBSearchModel class]];
-    NSArray * filtered = [self.eventHandler.dataSource filteredArrayUsingPredicate:p];
-    NSInteger row = [self.eventHandler.dataSource indexOfObject:[filtered firstObject]];
+    NSArray * filtered = [self.vm.dataSource filteredArrayUsingPredicate:p];
+    NSInteger row = [self.vm.dataSource indexOfObject:[filtered firstObject]];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];
     
     dispatch_async(dispatch_get_main_queue(), ^(){
@@ -348,9 +348,9 @@ typedef NS_ENUM(NSInteger,CUBTestType){
 
 - (void)test1 {
     
-    [self.eventHandler get_status_no_friend:^(NSArray *dataSource) {
+    [self.vm get_status_no_friend:^(NSArray *dataSource) {
         self.testType = CUBTestType1;
-        self.eventHandler.dataSource = dataSource.mutableCopy;
+        self.vm.dataSource = dataSource.mutableCopy;
         [self.tableView reloadData];
     }];
     
@@ -358,9 +358,9 @@ typedef NS_ENUM(NSInteger,CUBTestType){
 
 - (void)test2 {
     
-    [self.eventHandler get_status_friend:^(NSArray *dataSource) {
+    [self.vm get_status_friend:^(NSArray *dataSource) {
         self.testType = CUBTestType2;
-        self.eventHandler.dataSource = dataSource.mutableCopy;
+        self.vm.dataSource = dataSource.mutableCopy;
         [self.tableView reloadData];
     }];
     
@@ -368,9 +368,9 @@ typedef NS_ENUM(NSInteger,CUBTestType){
 
 - (void)test3 {
     
-    [self.eventHandler get_status_friend_and_invite:^(NSArray *dataSource) {
+    [self.vm get_status_friend_and_invite:^(NSArray *dataSource) {
         self.testType = CUBTestType3;
-        self.eventHandler.dataSource = dataSource.mutableCopy;
+        self.vm.dataSource = dataSource.mutableCopy;
         [self.tableView reloadData];
     }];
     
