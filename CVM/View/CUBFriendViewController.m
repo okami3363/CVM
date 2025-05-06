@@ -31,9 +31,7 @@ typedef NS_ENUM(NSInteger,CUBTestType){
 
 @property (nonatomic, strong) CUBFriendViewModel *eventHandler;
 @property (nonatomic, strong) UITableView *tableView;
-
 @property (nonatomic, strong) UISearchController *searchController;
-@property (nonatomic, strong) NSMutableArray *results;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property CUBTestType testType;
 
@@ -78,7 +76,6 @@ typedef NS_ENUM(NSInteger,CUBTestType){
     [self.tableView registerClass:[CUBInviteTableViewCell class] forCellReuseIdentifier:@"CUBInviteModel"];
     [self.tableView registerClass:[CUBSegmentTableViewCell class] forCellReuseIdentifier:@"CUBSegmentModel"];
     
-    self.results = @[].mutableCopy;
     self.searchController = [[UISearchController alloc]initWithSearchResultsController:nil];
     self.searchController.searchResultsUpdater = self;
     self.searchController.delegate = self;
@@ -228,7 +225,7 @@ typedef NS_ENUM(NSInteger,CUBTestType){
 }
 
 - (void)configLineAtLastCell:(CUBTableViewCellBaseClass *)cell indexPath:(NSIndexPath * _Nonnull)indexPath {
-    NSInteger count = (self.searchController.active)?self.results.count:self.eventHandler.dataSource.count;
+    NSInteger count = (self.searchController.active)?self.eventHandler.results.count:self.eventHandler.dataSource.count;
     if ([cell isMemberOfClass:[CUBFriendTableViewCell class]]) {
         CUBFriendTableViewCell *friendCell = (CUBFriendTableViewCell *)cell;
         if (indexPath.row == count-1) {
@@ -245,7 +242,7 @@ typedef NS_ENUM(NSInteger,CUBTestType){
     
     if (self.searchController.active) {
         
-        return self.results.count ;
+        return self.eventHandler.results.count ;
     }
     
     return self.eventHandler.dataSource.count;
@@ -253,7 +250,7 @@ typedef NS_ENUM(NSInteger,CUBTestType){
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    id model = (self.searchController.active)?[self.results objectAtIndex:indexPath.row]:[self.eventHandler.dataSource objectAtIndex:indexPath.row];
+    id model = (self.searchController.active)?[self.eventHandler.results objectAtIndex:indexPath.row]:[self.eventHandler.dataSource objectAtIndex:indexPath.row];
     
     NSString *cellReuseIdentifier = NSStringFromClass([model class]);
     
@@ -293,8 +290,8 @@ typedef NS_ENUM(NSInteger,CUBTestType){
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
     
     NSString *inputStr = searchController.searchBar.text ;
-       if (self.results.count > 0) {
-           [self.results removeAllObjects];
+       if (self.eventHandler.results.count > 0) {
+           [self.eventHandler.results removeAllObjects];
        }
        for (id model in self.eventHandler.dataSource) {
            
@@ -303,7 +300,7 @@ typedef NS_ENUM(NSInteger,CUBTestType){
                memberFriendModel = model;
                
                if ([memberFriendModel.name.lowercaseString rangeOfString:inputStr.lowercaseString].location != NSNotFound) {
-                   [self.results addObject:memberFriendModel];
+                   [self.eventHandler.results addObject:memberFriendModel];
                }
            }
        }

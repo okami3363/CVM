@@ -27,6 +27,7 @@
     self = [super init];
     if (self) {
         _dataSource = @[].mutableCopy;
+        _results = @[].mutableCopy;
         _manager = [[CUBFriendDataManager alloc] init];
         
     }
